@@ -1,5 +1,5 @@
 const initialState = {
-  cards: [],
+  lists: [],
 }
 
 const reducer = (state = initialState, action: any) => {

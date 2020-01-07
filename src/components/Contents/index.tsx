@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import AddList from '../AddList';
 
 interface Props {}
 interface State {}
@@ -8,7 +9,7 @@ class Contents extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <p>contents</p>
+        <AddList />
       </div>
     );
   }
