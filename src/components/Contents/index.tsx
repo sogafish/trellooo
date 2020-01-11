@@ -7,6 +7,7 @@ interface State {}
 
 class Contents extends React.Component<Props, State> {
   render() {
+    console.log(this.props, '::::::::::::::::::::::::::::::');
     return (
       <div>
         <AddList />
@@ -16,7 +17,7 @@ class Contents extends React.Component<Props, State> {
 }
 
 const mapStateToProps = (state: any) => {
-  return {state};
+  return {　state　};
 }
 
 export default connect(mapStateToProps)(Contents);

@@ -18,6 +18,6 @@ const AddList = () => {
     }
     </div>
   );
-}
+};
 
 export default AddList
