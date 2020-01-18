@@ -1,4 +1,7 @@
-export const add = (text: string) => ({
-  type: 'ADD',
-  text
-});
+import * as listActions from './list';
+
+const actions = {
+  ...listActions,
+};
+
+export default actions
