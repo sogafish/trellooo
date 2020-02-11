@@ -1,7 +1,10 @@
-import * as listActions from './list';
+import { ADD_LIST } from './actionTypes';
 
-const actions = {
-  ...listActions,
-};
+declare type AddListPayload = {
+  text: string,
+}
 
-export default actions
+export const addList = (payload: AddListPayload) => ({
+  type: ADD_LIST,
+  payload,
+});

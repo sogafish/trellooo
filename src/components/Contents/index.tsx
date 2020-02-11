@@ -1,23 +1,56 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions';
 import AddList from '../AddList';
 
-interface Props {}
+interface Props {
+  actions: any,
+  state: {
+    lists: { title: string }[],
+  },
+}
 interface State {}
 
 class Contents extends React.Component<Props, State> {
   render() {
-    console.log(this.props, '::::::::::::::::::::::::::::::');
+    const {
+      actions: {
+        addList,
+      },
+      state: {
+        lists,
+      },
+    } = this.props;
+
     return (
       <div>
-        <AddList />
+        <ul>
+        {lists.map((list, index) => (
+          <p key={`list-item-${index}`}>{list.title}</p>
+        ))}
+        </ul>
+        <AddList
+          addList={addList}
+        />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state: any) => {
-  return {　state　};
+function mapStateToProps(state: any) {
+  return {
+    state,
+  };
 }
 
-export default connect(mapStateToProps)(Contents);
+function mapDispatchToProps(dispatch: any) {
+  return {
+    actions: bindActionCreators(actions, dispatch),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Contents);

@@ -1,7 +1,15 @@
 import React, { useState, useCallback } from 'react';
 import Form from './Form';
 
-const AddList = () => {
+interface Props {
+  addList: Function,
+}
+
+const AddList = (props: Props) => {
+  const {
+    addList,
+  } = props;
+
   const [isFormOpen, setOpen] = useState(false);
   const openForm = useCallback(() => {
     setOpen(true);
@@ -13,7 +21,10 @@ const AddList = () => {
   return (
     <div>
     {isFormOpen
-      ? <Form onClose={closeForm} /> 
+      ? <Form
+          addList={addList}
+          onClose={closeForm}
+        /> 
       : <p onClick={openForm}>+ Add List</p>
     }
     </div>
