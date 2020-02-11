@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { bindActionCreators } from 'redux';
-import * as actions from '../../actions';
+import mapDispatchToProps from '../../actions/creator';
+import styles from './styles';
 import AddList from '../AddList';
 
 interface Props {
@@ -24,10 +24,10 @@ class Contents extends React.Component<Props, State> {
     } = this.props;
 
     return (
-      <div>
+      <div style={styles.contents}>
         <ul>
         {lists.map((list, index) => (
-          <p key={`list-item-${index}`}>{list.title}</p>
+          <li key={`list-item-${index}`}>{list.title}</li>
         ))}
         </ul>
         <AddList
@@ -44,13 +44,7 @@ function mapStateToProps(state: any) {
   };
 }
 
-function mapDispatchToProps(dispatch: any) {
-  return {
-    actions: bindActionCreators(actions, dispatch),
-  };
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Contents);

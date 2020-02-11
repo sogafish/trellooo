@@ -6,6 +6,7 @@ import logger from 'redux-logger';
 import App from './App';
 import reducer from './reducers';
 import * as serviceWorker from './serviceWorker';
+import './index.css';
 
 const store = createStore(
   reducer,
