@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-import * as styles from './styles';
+import React from 'react';
 
 const Header = () => {
   return (
-    <div style={styles.header} />
+    <div />
   );
 };
 
