@@ -3,18 +3,19 @@ import { useForm } from 'react-hook-form';
 
 interface Props {
   onClose: () => void,
-  addList: Function,
+  add: Function,
 }
 
 const Form = (props: Props) => {
   const {
     onClose,
-    addList,
+    add,
   } = props;
+
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data: any) => {
-    addList(data);
-  }
+  const onSubmit = (data: $FixMe) => {
+    add(data);
+  };
 
   return (
     <>
